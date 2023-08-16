@@ -65,11 +65,13 @@ class Finally(Node):
         yield line('finally:')
 
 
-class Try:
+class Try(Node):
     """
     Nodes representing a python try statement.
     """
     def __init__(self):
+        super().__init__()
+
         self.except_nodes: 'list[Except]' = list()
         """
         List of except nodes following this try statement node.

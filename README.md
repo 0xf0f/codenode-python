@@ -454,15 +454,15 @@ subclasses of `codenode_python.node.Node`.
 ### codenode_python.Try<a id="codenode_pythontry"></a>
 
 > ```python
-> class Try: ...
+> class Try(Node): ...
 > ```
 > 
 > Nodes representing a python try statement.
 #### Methods
 > ##### `add_except`
 > ```python
-> class Try:
->     def add_except(self, types: 'tuple[str]'=(), name: Optional[str]=None, exception_group=False) -> Except: ...
+> class Try(Node):
+>     def add_except(self, types: 'tuple[str, ...]'=(), name: Optional[str]=None, exception_group=False) -> Except: ...
 > ````
 > 
 > Creates a new except clause node, adds it to this node's list of
@@ -484,7 +484,7 @@ subclasses of `codenode_python.node.Node`.
 
 > ##### `add_else`
 > ```python
-> class Try:
+> class Try(Node):
 >     def add_else(self) -> Else: ...
 > ````
 > 
@@ -498,7 +498,7 @@ subclasses of `codenode_python.node.Node`.
 
 > ##### `add_finally`
 > ```python
-> class Try:
+> class Try(Node):
 >     def add_finally(self) -> Finally: ...
 > ````
 > 
@@ -511,7 +511,7 @@ subclasses of `codenode_python.node.Node`.
 > 
 
 #### Attributes
-> ***except_nodes:*** list[Except] - 
+> ***except_nodes:*** 'list[Except]' - 
 > List of except nodes following this try statement node.
 
 > ***finally_node:*** Optional[Finally] - 
@@ -549,7 +549,7 @@ subclasses of `codenode_python.node.Node`.
 >   >                                instead.
 
 #### Attributes
-> ***types:*** 'tuple[str]' - 
+> ***types:*** 'tuple[str, ...]' - 
 > Exception types this clause catches.
 
 > ***name:*** Optional[str] - 

@@ -24,7 +24,7 @@ class Except(Node):
                                 instead.
         """
         super().__init__()
-        self.types: 'tuple[str]' = types
+        self.types: 'tuple[str, ...]' = types
         """
         Exception types this clause catches.
         """
@@ -70,7 +70,7 @@ class Try:
     Nodes representing a python try statement.
     """
     def __init__(self):
-        self.except_nodes: list[Except] = list()
+        self.except_nodes: 'list[Except]' = list()
         """
         List of except nodes following this try statement node.
         """
@@ -87,7 +87,7 @@ class Try:
 
     def add_except(
             self,
-            types: 'tuple[str]' = (),
+            types: 'tuple[str, ...]' = (),
             name: Optional[str] = None,
             exception_group=False,
     ) -> Except:

@@ -15,6 +15,7 @@ a pull request to merge them.
 
 ## Running tests
 - With the development venv activated, run `python -m tools.run_tests` to run tests.
+- Must be run using python >=3.11
 
 ## Generating docs
 - Changes to readmes should be done using the templates 

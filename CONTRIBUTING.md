@@ -1,0 +1,38 @@
+## Guidelines
+- Create a new branch in a fork to implement changes then open 
+a pull request to merge them.
+- Keep code straightforward, clean and readable.
+- Document everything public facing with docstrings.
+- Provide comments for things that might not be clear.
+- Add type annotations where applicable.
+- Adjust tests and docs as necessary.
+- PEP8 compliance is ideal.
+
+## Setting up for development
+- Clone a fork of the repo then navigate to the project directory.
+- [Create and activate a virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment)
+- Install modules required for development by running the command `pip install -r requirements-dev.txt`
+
+## Running tests
+- With the development venv activated, run `python -m tools.run_tests` to run tests.
+
+## Generating docs
+- Changes to readmes should be done using the templates 
+in the docs/ folder
+- With the development venv activated, run `python -m tools.generate_readmes` to create README files.
+- Must be run using python >=3.9
+
+## Pushing to PyPI
+- Create a .pypirc file in the root of the project
+- Fill the .pypirc file below using appropriate PyPI API tokens:
+  ```yaml
+  [pypi]
+  username = __token__
+  password = ...
+  
+  [testpypi]
+  username = __token__
+  password = ...
+  ```
+- With the development venv activated, run `python -m tools.publish_to_testpypi` to publish to TestPyPI
+- With the development venv activated, run `python -m tools.publish_to_pypi` to publish to PyPI
